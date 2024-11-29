@@ -1,0 +1,6 @@
+{
+    "dal": "Vizehane.DAL",
+    "business": "Vizehane.Business",
+    "mvc": "Vizehane.AdminPanel",
+    "entity": "Vizehane.Entity"
+}
