@@ -2,6 +2,8 @@ import inquirer from 'inquirer';
 import chalk from 'chalk';
 import path from 'path';
 import fs from 'fs';
+import { handleTableCreation } from './table.js';
+import { handleDtoCreation } from './dto.js';
 
 // Bulunduğunuz klasörün adını alır
 const currentDir = path.basename(process.cwd());
@@ -79,15 +81,14 @@ async function main() {
                 type: 'list',
                 name: 'choice',
                 message: chalk.blue('Ne yapmak istersiniz?'),
-                choices: ['Tablo', 'Script', 'Çıkış Yap'],
+                choices: ['Tablo', 'Dto', 'Çıkış Yap'],
             },
         ]);
 
         if (choice === 'Tablo') {
             await handleTableCreation();
-        } else if (choice === 'Script') {
-            console.log(chalk.blue('Script seçildi, işlemler burada yapılacak.'));
-            // Script işlemleri buraya eklenebilir
+        } else if (choice === 'Dto') {
+            await handleDtoCreation();
         } else if (choice === 'Çıkış Yap') {
             console.log(chalk.green('Program sonlandırılıyor...'));
             process.exit(0); // Programı sonlandır
